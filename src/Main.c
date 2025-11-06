@@ -1,8 +1,12 @@
+#if defined(__linux__)
+#error "Linux not supported!"
+#elif defined(_WINE) || defined(_WIN32)
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <Windows.h>
 #include <math.h>
+
 #include "Settings.h"
 
 #define nScreenWidth 120.0f
@@ -246,3 +250,8 @@ int main()
 
 	return 0;
 }
+#elif defined(__APPLE__)
+#error "Apple not supported!"
+#else
+#error "Platform not supported!"
+#endif
